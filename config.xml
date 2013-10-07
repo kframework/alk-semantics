@@ -1,0 +1,33 @@
+<tests>
+<!--
+  Testing the algorithmic language defined in kalg.
+-->
+
+
+
+<!-- prog-equiv -->
+  <test
+      definition="dist/examples/alg/alg.k"
+      programs="dist/examples/alg/programs"
+      extensions="alg"
+  >
+    <program name="dist/examples/alg/programs/dfsnerec.alg">
+      <krun-option name="-cST" 
+                   value="D |-> { n |-> 3 
+                                  a |-> { 0 |-> [1, 2, .Vals] 
+                                          1 |-> [2, 0, .Vals]
+                                          2 |-> [0, .Vals] } } 
+                          i0 |-> 1
+                          p |-> { .Map }
+                          S |-> { .Map }" />  
+      <krun-option name="-cGST" value=".Map" />
+    </program> 
+    <program name="dist/examples/alg/programs/list-with-arrays.alg">
+      <krun-option name="-cST" 
+                   value="l |-> { length |-> 2
+                                  arr |-> { 0 |-> 7 1 |-> 8 2 |-> 9 3 |-> 0} }"
+      />  
+      <krun-option name="-cGST" value=".Map" />
+    </program> 
+  </test> 
+</tests>
