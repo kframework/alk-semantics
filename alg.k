@@ -490,8 +490,8 @@ $\texttt{insert}([v_0,\ldots,v_{n{-}1}],i,v)\Rightarrow [\texttt{insert}((v_0,\l
 Time complexity: $O(i)$ (inherited from cons lists)
 */
 
-  context '_._(_,, insert(HOLE:Exp, _:Exp))
-  context '_._(_,, insert(_:Exp, HOLE:Exp))
+  context '_._(_,, insert(HOLE, _:Exp))
+  context '_._(_,, insert(_:Exp, HOLE))
 
   rule <k> '_._(L:Name,, insert(I:Int, V:Val)); => noVal ...</k>
        <state>... L |-> [Vl => '_._(Vl,, insert(I, V))] ...</state>
@@ -580,8 +580,8 @@ $\texttt{update}([v_0,\ldots,v_{n{-}1}],i,v)\Rightarrow [\texttt{update}((v_0,\l
 Time complexity: $O(i)$ (inherited from cons lists)
 */
 
-  context '_._(_,, update(HOLE:Exp, _:Exp))
-  context '_._(_,, update(_:Exp, HOLE:Exp))
+  context '_._(_,, update(HOLE, _:Exp))
+  context '_._(_,, update(_:Exp, HOLE))
 
   rule <k> '_._(L:Name,, update(I:Int, V:Val)) => noVal ...</k>
        <state>... L |-> [Vl => '_._(Vl,, update(I, V))] ...</state>
@@ -703,7 +703,7 @@ Time complexity: $O(size(L))$
 
   rule update({M:Map X |-> V:Val}, X:Name[I:Int], V':Val)::Val
        =>
-       { M (X |-> (update(V, I, V')::Val)::Val) }
+       { M (X |-> (update(V, I, V')::Val)) }
  
   rule update({M:Map X |-> V':Val}, '_._(X:Name[I:Int],, E:Exp), V:Val)::Val
        =>
