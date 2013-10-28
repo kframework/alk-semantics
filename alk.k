@@ -20,7 +20,7 @@ We intend to add tools supporting algorithm analysis (e.g., the computation of t
 
 */
 
-module ALG-SYNTAX
+module ALK-SYNTAX
  
   syntax Val ::=  Bool | Int | Float | String
 
@@ -98,8 +98,8 @@ endmodule
 
 */
 
-module ALG 
-  imports ALG-SYNTAX 
+module ALK 
+  imports ALK-SYNTAX 
 
 
   rule if(B:Exp) St:Stmt => if(B) St else {} 
