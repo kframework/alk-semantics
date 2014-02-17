@@ -1,3 +1,10 @@
+/*
+  This example includes the recursive version of the DFS algorithm.
+  @input: a digraf D and a vertex i0
+  @output: the list S of the verices reachable from i0
+*/
+
+// the recursive function
 dfsRec(i) {
   if (S[i] == 0) {
     // visit i
@@ -11,7 +18,7 @@ dfsRec(i) {
   }
 }
 
-// calling program
+// the calling program
 i = 0;
 while (i < D.n) {
   S[i] = 0;
@@ -19,10 +26,18 @@ while (i < D.n) {
 }
 dfsRec(1);
 
-// D.n = 3
-// D.a[0] = (1,2)
-// D.a[1] = (2, 0)
-// D.a[2] = (0)
-// 
-// krun programs/dfsrec.alg -cST ".Map" -cGST "D |-> { n |-> 3 a |-> { 0 |-> [1, 2, .Vals] 1 |-> [2, 0, .Vals] 2 |-> [0, .Vals] } } S |-> { .Map }" 
+/* Example of running command line
+   Assuming that the digraph D is given by
+     D.n = 3
+     D.a[0] = (1,2)
+     D.a[1] = (2, 0)
+     D.a[2] = (0)
+   and the vertex i0 is one, then the krun command is 
+     krun programs/dfsnerec.alk -cGST "D |-> { n |-> 3
+                                              a |-> { 0 |-> [1, 2, .Vals] 1 |-> [2, 0, .Vals] 2 |-> [0, .Vals] } }
+                                              i0 |-> 1
+                                              p |-> { .Map }
+                                              S |-> { .Map }" \
+                                -cST=".Map"
+*/
 

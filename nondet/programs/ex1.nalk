@@ -1,0 +1,26 @@
+/*
+  A simple example of nondeterminstic algoritm.
+  For demo:
+  @input: an empty array x
+  @output: success if the epresion returned by exp() is equal to 1 for the guessed x
+*/
+exp() {
+  return  (1 - xx[0])*xx[1] + xx[0]*(1 - xx[2]);
+}
+
+xx[0] = random(2);
+xx[1] = random(2);
+xx[2] = random(2);
+if (exp() == 1) success;
+else failure;
+
+/*
+  Example of succesful running command line:
+    krun programs/ex1.nalk -cGST="xx |-> { .Map }" \
+                           -cST=".Map" \
+                           -cSEED="1212"  
+  Example of failing running command line:
+    krun programs/ex1.nalk -cGST="xx |-> { .Map }" \
+                           -cST=".Map" \
+                           -cSEED="1214"  
+*/

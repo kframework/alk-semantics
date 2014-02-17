@@ -1,5 +1,15 @@
+/*
+  A simple example with structures.
+  For demo:
+  @input: a structure p
+  @output: a variable a equal to the sum of the fields of p
+*/
 p.x = 3;
 p.y = 5;
 a = p.x + p.y;
 
-// krun programs/struct1.alg -cST="a |-> 2 p |-> { x |-> 5 y |-> 23}" -cGST=".Map"
+/*
+  Example of running command line:
+    krun programs/struct1.alk -cST="p |-> { x |-> 5 y |-> 23}" \
+                              -cGST=".Map"
+*/

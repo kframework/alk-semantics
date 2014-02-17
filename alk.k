@@ -98,7 +98,7 @@ endmodule
 
 */
 
-module ALK 
+module ALK-SEMANTICS
   imports ALK-SYNTAX 
 
 
@@ -194,15 +194,11 @@ EXamples: a map $\texttt{x}\mapsto 5$ represents a memory cell storing $5$ and r
 \]
 */
 
-  configuration 
-    <k> copyGlobalState; ~> $PGM:Stmts </k>
-    <state> $ST:Map </state>
-    <gstate multiplicity="?"> $GST:Map </gstate>
 
   syntax Stmt ::= "copyGlobalState;"
 
   rule <k> copyGlobalState; => . ...</k>
-       <state>... . => GSt ...</state>
+       <state> . => GSt ...</state>
        <gstate>  GSt:Map </gstate>
 
 
@@ -724,4 +720,13 @@ Time complexity: $O(size(L))$
        =>
        mergeMap((L X |-> V'), R, J)
 
+endmodule
+
+module ALK
+  imports ALK-SEMANTICS 
+
+  configuration 
+    <k> copyGlobalState; ~> $PGM:Stmts </k>
+    <state> $ST:Map </state>
+    <gstate multiplicity="?"> $GST:Map </gstate>
 endmodule

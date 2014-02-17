@@ -1,3 +1,12 @@
+/*
+  This example exhibits the implementation of the list with arrays.
+  A list is implemented by a structure with two fields: 
+  length and arr (an array storing the elements of the list.
+  For demo:
+  @input: a list l
+  @output: l updated with some operations.
+*/
+
 ArrList::update(i, x) {
   self.arr[i] = x;
 }
@@ -15,5 +24,10 @@ l.ArrList::pushFront(1);
 l.pushFront(2);
 l.update(0,5);
 
-// krun programs/list-with-arrays.alg -cST "l |-> { length |-> 2 arr |-> { 0 |-> 7 1 |-> 8 2 |-> 9 3 |-> 0} }" -cGST=".Map"
+/*
+  Example of running commnd line:
+    krun programs/list-with-arrays.alk -cST "l |-> { length |-> 2
+                                             arr |-> { 0 |-> 7 1 |-> 8 2 |-> 9 3 |-> 0} }" \
+                                       -cGST=".Map"
+*/
 

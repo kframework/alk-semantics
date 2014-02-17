@@ -1,4 +1,10 @@
-duplicate(L) {
+/*
+  This example shows the use of functions on lists.
+  @input: a list l1 of integers
+  @output: l1, where all components are duplicated
+*/
+
+ duplicate(L) {
   i = 0;
   while (i < L.size()) {
     L.update(i, 2 * L.select(i));
@@ -7,6 +13,10 @@ duplicate(L) {
   return L;
 }
 
-l = duplicate(l);
+l1 = duplicate(l1);
 
-// krun programs/fun-with-list.alg -cST="l |-> [1, 2, 3, .Vals]" -cGST=".Map" -cGST=".Map"
+/*
+  Example of running command line:
+    krun programs/fun-with-list.alk -cST="l1 |-> [1, 2, 3, .Vals]" \
+                                    -cGST=".Map"
+*/

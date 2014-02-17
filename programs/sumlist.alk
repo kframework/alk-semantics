@@ -1,3 +1,9 @@
+/*
+  Another simple example with lists.
+  For demo:
+  @input: a list L
+  @output: the sum s of the elements of L
+*/
 s = 0;
 i = 0;
 while (i < L.size()) {
@@ -6,4 +12,8 @@ while (i < L.size()) {
 }
 
 
-// krun programs/sumlist.alg -cST="L |-> [1, 2, 3, .Vals]"  -cGST=".Map"
+/*
+  Example of running command line:
+    krun programs/sumlist.alk -cST="L |-> [1, 2, 3, .Vals]" \
+                              -cGST=".Map"
+*/

@@ -1,5 +1,15 @@
+/*
+  A simple example with lists.
+  For demo:
+  @input: a list L
+*/
+
 x = L.topFront();
 y = x + L.select(2);
 
 
-// krun programs/list1.alg -cST="L |-> [1, 2, 3, .Vals]" -cGST=".Map"
+/*
+  Example of running command line:
+    krun programs/list1.alk -cST="L |-> [1, 2, 3, .Vals]" \
+                            -cGST=".Map"
+*/

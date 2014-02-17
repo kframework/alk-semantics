@@ -1,3 +1,9 @@
+/*
+  This example includes the nonrecursive version of the DFS algorithm.
+  @input: a digraf D and a vertex i0
+  @output: the list S of the verices reachable from i0
+*/
+
 i = 0;
 while (i < D.n) {
   p[i] = D.a[i];
@@ -24,10 +30,17 @@ while (SB.size() > 0) {
   }
 }
 
-// D.n = 3
-// D.a[0] = (1,2)
-// D.a[1] = (2, 0)
-// D.a[2] = (0)
-// 
-// krun programs/dfsnerec.alg -cST "D |-> { n |-> 3 a |-> { 0 |-> [1, 2, .Vals] 1 |-> [2, 0, .Vals] 2 |-> [0, .Vals] } } i0 |-> 1 p |-> { .Map } S |-> { .Map }"  -cGST=".Map"
-
+/* Example of running command line
+   Assuming that the digraph D is given by
+     D.n = 3
+     D.a[0] = (1,2)
+     D.a[1] = (2, 0)
+     D.a[2] = (0)
+   and the vertex i0 is one, then the krun command is 
+     krun programs/dfsnerec.alk -cST "D |-> { n |-> 3
+                                              a |-> { 0 |-> [1, 2, .Vals] 1 |-> [2, 0, .Vals] 2 |-> [0, .Vals] } }
+                                              i0 |-> 1
+                                              p |-> { .Map }
+                                              S |-> { .Map }" \
+                                -cGST=".Map"
+*/
