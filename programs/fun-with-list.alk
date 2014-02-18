@@ -13,10 +13,10 @@
   return L;
 }
 
-l1 = duplicate(l1);
+l = duplicate(l);
 
 /*
   Example of running command line:
-    krun programs/fun-with-list.alk -cST="l1 |-> [1, 2, 3, .Vals]" \
+    krun programs/fun-with-list.alk -cST="a |-> 2 l |-> [1, 2, 3, .Vals]" \
                                     -cGST=".Map"
 */

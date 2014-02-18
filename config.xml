@@ -83,5 +83,10 @@
       <krun-option name="-cGST" value=".Map" />
     </program> 
 
+    <program name="random.alk">
+      <krun-option name="-cST"  value=".Map" />  
+      <krun-option name="-cGST" value="random_seed |-> 1212" />
+    </program> 
+
   </test> 
 </tests>
