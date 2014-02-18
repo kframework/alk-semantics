@@ -1,0 +1,18 @@
+/*
+  This is an example of a simple random-number formula from the book
+  "The C Programming Language" by Kernighan and Ritchie.
+  Since random_seed is a global variable, its initial value must given in 
+  the global state (GST).
+*/
+ 
+rand() {
+  random_seed = random_seed * 1103515245 +12345;
+  return (random_seed / 65536) % 32768; 
+}
+
+x = rand();
+y = rand();
+/*
+  Example of command line:
+    krun programs/random.alk -cST=".Map" -cGST="random_seed |-> 1212"
+*/
