@@ -10,6 +10,5 @@ y = x + L.select(2);
 
 /*
   Example of running command line:
-    krun programs/list1.alk -cST="L |-> [1, 2, 3, .Vals]" \
-                            -cGST=".Map"
+    krun programs/list1.alk -cST="L |-> [1, 2, 3]"
 */

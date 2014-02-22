@@ -10,6 +10,5 @@ a = p.x + p.y;
 
 /*
   Example of running command line:
-    krun programs/struct1.alk -cST="p |-> { x |-> 5 y |-> 23}" \
-                              -cGST=".Map"
+    krun programs/struct1.alk -cST="p |-> { x |-> 5 y |-> 23}" 
 */

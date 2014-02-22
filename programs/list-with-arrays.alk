@@ -26,8 +26,8 @@ l.update(0,5);
 
 /*
   Example of running commnd line:
-    krun programs/list-with-arrays.alk -cST "l |-> { length |-> 2
-                                             arr |-> { 0 |-> 7 1 |-> 8 2 |-> 9 3 |-> 0} }" \
-                                       -cGST=".Map"
+    krun programs/list-with-arrays.alk \
+     -cST "l |-> { length |-> 2
+                   arr |-> { 0 |-> 7 1 |-> 8 2 |-> 9 3 |-> 0} }" 
 */
 

@@ -15,56 +15,49 @@
     <program name="dfsnerec.alk">
       <krun-option name="-cST" 
                    value="D |-> { n |-> 3 
-                                  a |-> { 0 |-> [1, 2, .Vals] 
-                                          1 |-> [2, 0, .Vals]
-                                          2 |-> [0, .Vals] } } 
+                                  a |-> { 0 |-> [1, 2] 
+                                          1 |-> [2, 0]
+                                          2 |-> [0] } } 
                           i0 |-> 1
                           p |-> { .Map }
                           S |-> { .Map }" />  
-      <krun-option name="-cGST" value=".Map" />
     </program> 
     <program name="dfsrec.alk">
-      <krun-option name="-cGST" 
+      <krun-option name="-cST" 
                    value="D |-> { n |-> 3 
-                                  a |-> { 0 |-> [1, 2, .Vals] 
-                                          1 |-> [2, 0, .Vals]
-                                          2 |-> [0, .Vals] } } 
+                                  a |-> { 0 |-> [1, 2] 
+                                          1 |-> [2, 0]
+                                          2 |-> [0] } } 
                           i0 |-> 1
                           p |-> { .Map }
                           S |-> { .Map }" />  
-      <krun-option name="-cST" value=".Map" />
     </program> 
     <program name="list-with-arrays.alk">
       <krun-option name="-cST" 
                    value="l |-> { length |-> 2
                                   arr |-> { 0 |-> 7 1 |-> 8 2 |-> 9 3 |-> 0} }"
       />  
-      <krun-option name="-cGST" value=".Map" />
     </program> 
     <program name="fun-with-list.alk">
       <krun-option name="-cST" 
-                   value="l |-> [1, 2, 3, .Vals]"
+                   value="l |-> [1, 2, 3]"
       />  
-      <krun-option name="-cGST" value=".Map" />
     </program> 
     <program name="list1.alk">
       <krun-option name="-cST" 
-                   value="l |-> [1, 2, 3, .Vals]"
+                   value="l |-> [1, 2, 3]"
       />  
-      <krun-option name="-cGST" value=".Map" />
     </program> 
     <program name="list2.alk">
       <krun-option name="-cST" 
                    value="L1 |-> [.Vals] L2 |-> [.Vals]"
       />  
-      <krun-option name="-cGST" value=".Map" />
     </program> 
     <program name="struct1.alk">
       <krun-option name="-cST" 
                    value="a |-> 2
                           p |-> { x |-> 5 y |-> 23}"
       />  
-      <krun-option name="-cGST" value=".Map" />
     </program> 
     <program name="struct2.alk">
       <krun-option name="-cST" 
@@ -74,18 +67,15 @@
                                   b |-> { x |-> 2
                                           y |-> 12}}"
       />  
-      <krun-option name="-cGST" value=".Map" />
     </program> 
     <program name="sumlist.alk">
       <krun-option name="-cST" 
-                   value="L |-> [1, 2, 3, .Vals]"
+                   value="L |-> [1, 2, 3]"
       />  
-      <krun-option name="-cGST" value=".Map" />
     </program> 
 
-    <program name="random.alk">
-      <krun-option name="-cST"  value=".Map" />  
-      <krun-option name="-cGST" value="random_seed |-> 1212" />
+    <program name="random.alk"> 
+      <krun-option name="-cST" value="random_seed |-> 1212" />
     </program> 
 
   </test> 

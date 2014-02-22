@@ -17,6 +17,5 @@ l = duplicate(l);
 
 /*
   Example of running command line:
-    krun programs/fun-with-list.alk -cST="a |-> 2 l |-> [1, 2, 3, .Vals]" \
-                                    -cGST=".Map"
+    krun programs/fun-with-list.alk -cST="a |-> 2 l |-> [1, 2, 3]"
 */

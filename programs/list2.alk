@@ -15,6 +15,5 @@ while (L1.size() > 0) {
 
 /*
   Example of running command line:
-    krun programs/list2.alk -cST="L1 |-> [.Vals] L2 |-> [.Vals]" \
-                            -cGST=".Map"
+    krun programs/list2.alk -cST="L1 |-> [.Vals] L2 |-> [.Vals]" 
 */

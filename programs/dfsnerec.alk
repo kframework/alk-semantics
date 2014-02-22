@@ -37,10 +37,10 @@ while (SB.size() > 0) {
      D.a[1] = (2, 0)
      D.a[2] = (0)
    and the vertex i0 is one, then the krun command is 
-     krun programs/dfsnerec.alk -cST "D |-> { n |-> 3
-                                              a |-> { 0 |-> [1, 2, .Vals] 1 |-> [2, 0, .Vals] 2 |-> [0, .Vals] } }
-                                              i0 |-> 1
-                                              p |-> { .Map }
-                                              S |-> { .Map }" \
-                                -cGST=".Map"
+     krun programs/dfsnerec.alk \
+       -cST "D |-> { n |-> 3
+                     a |-> { 0 |-> [1, 2] 1 |-> [2, 0] 2 |-> [0] } }
+             i0 |-> 1
+             p |-> { .Map }
+             S |-> { .Map }"
 */

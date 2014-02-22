@@ -5,18 +5,18 @@
   @output: success if the epresion returned by exp() is equal to 1 for the guessed x
 */
 exp() {
-  return  (1 - xx[0])*xx[1] + xx[0]*(1 - xx[2]);
+  return  (1 - x[0])*x[1] + x[0]*(1 - x[2]);
 }
 
-xx[0] = random(2);
-xx[1] = random(2);
-xx[2] = random(2);
+x[0] = random(2);
+x[1] = random(2);
+x[2] = random(2);
 if (exp() == 1) success;
 else failure;
 
 /*
   Example of succesful running command line:
-    krun programs/ex1.nalk -cGST="xx |-> { .Map }" \
+    krun programs/ex1.nalk -cGST="x |-> { .Map }" \
                            -cST=".Map" \
                            -cSEED="1212"  
   Example of failing running command line:

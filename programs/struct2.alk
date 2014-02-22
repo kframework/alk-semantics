@@ -10,8 +10,8 @@ lg = (s.a.y - s.a.x) + (s.b.y - s.b.x);
 
 /*
   Example of running command line:
-    krun programs/struct2.alk -cST="lg |-> 0
-                                    s |-> {a |-> { x |-> 5 y |-> 23}
-                                           b |-> { x |-> 2 y |-> 12}}" \
-                              -cGST=".Map"
+    krun programs/struct2.alk \
+      -cST="lg |-> 0
+            s |-> {a |-> { x |-> 5 y |-> 23}
+            b |-> { x |-> 2 y |-> 12}}" 
 */

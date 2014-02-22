@@ -405,7 +405,7 @@ EXamples: a map $\texttt{x}\mapsto 5$ represents a memory cell storing $5$ and r
 
   syntax K ::= "bind" Vals "to" Ids ";"  
 
-  // cal by value
+  // call by value
   rule <k> bind((V:Val, Vs:Vals) => Vs)
            to((X:Id, Xl:Ids) => Xl); 
        ...</k>
@@ -727,6 +727,6 @@ module ALK
 
   configuration 
     <k> copyGlobalState; ~> $PGM:Stmts </k>
-    <state> $ST:Map </state>
-    <gstate multiplicity="?"> $GST:Map </gstate>
+    <state> .Map </state>
+    <gstate multiplicity="?"> $ST:Map </gstate>
 endmodule
