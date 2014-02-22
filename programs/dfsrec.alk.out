@@ -1,0 +1,13 @@
+<k>
+    .K
+</k>
+<state>
+    D |-> { a |-> { 0 |-> [ 1, 2 ] 1 |-> [ 2, 0 ] 2 |-> [ 0 ] } n |-> 3 }
+    S |-> { 0 |-> 1 1 |-> 1 2 |-> 1 }
+    dfsRec |-> lambda ( i @ if ( ((S [ i ]) == 0) ) { (S [ i ]) = 1 ; p = (D .
+       (a [ i ])) ; while ( ((p . (size (  ))) > 0) ) { j = (p . (topFront (  
+      ))) ; (p . (popFront (  ))) ; (dfsRec ( j )) ; } } )
+    i |-> 3
+    i0 |-> 1
+    p |-> [  ]
+</state>

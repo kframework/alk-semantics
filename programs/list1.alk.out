@@ -1,0 +1,10 @@
+<k>
+    L ~> (HOLE . (topFront (  ))) ~> x = HOLE ; ~> y = (x + (L . (select ( 2 )
+      ))) ;
+</k>
+<gstate>
+    l |-> [ 1, 2, 3 ]
+</gstate>
+<state>
+    l |-> [ 1, 2, 3 ]
+</state>
