@@ -28,8 +28,8 @@ module ALK-SYNTAX
 
   syntax Exp ::= Val | Name
                | "(" Exp ")"  [bracket]
-               | Name "(" Exps ")" [strict(1)]
-               |  Name "[" Exp "]" [strict]
+               | Name "(" Exps ")" [strict(1), funcall]
+               |  Exp "[" Exp "]" [strict]
                > right:
                  Exp "." Exp [right]
                > "-" Exp [strict]
@@ -60,6 +60,7 @@ module ALK-SYNTAX
                | "while" "(" Exp ")" Stmt 
                | "return" Exps ";" [strict]
                | Exp "(" Ids ")" "{" Stmts "}"
+| "for" "(" Stmt Exp ";" Stmt ")" Stmt
                | "if" "(" Exp ")" Stmt "else" Stmt [strict(1)]
                >
                  "if" "(" Exp ")" Stmt
@@ -71,11 +72,7 @@ module ALK-SYNTAX
 
 // syntax of the semantics
 
-
-  syntax Val ::= "noVal" 
-               | "lambda" "(" Ids "@" Stmts ")" 
-                 [latex(\lambda\,{#1}\mathrel{\bullet}{#2})]
-               | "[" Vals "]" [kalbel("absList")]
+  syntax Val ::= "[" Vals "]" [kalbel("absList")]
                | "{" Map "}"  [klabel("structOrArray")]
 
   syntax Vals ::= List{Val,","}
@@ -132,19 +129,45 @@ In \K the cons lists are declared as:
 \end{alltt}
 The empty list (as value) is \texttt{.Vals}. The operations include:
 
-\indent\begin{tabular}{ll}
-Operation & Time Complexity\\
-\tt lookup(i) & $O(i)$\\
-\tt insert(i, x) & $O(i)$\\
-\tt update(i, x) & $O(i)$\\
-\tt topFront() & $O(1)$\\
-\tt pushFront(x) & $O(1)$\\
-\tt topBack() & $O(size(L))$\\
-\tt pushBack() & $O(size(L))$\\
+\indent
+\begin{tabular}{|l|l|c|}
+\hline
+Operation & Uniform cost& Logarithmic cost\\
+\hline
+\tt topFront($L$) & $O(1)$ & $O(\log v_0)$ \\
+\hline
+\tt popFront($L$) & $O(1)$ & $O(\log v_0)$ \\
+\hline
+\tt pushFront$(L, x)$ & $O(1)$ & $O(\log x)$ \\
+\hline
+\tt updateFront$(L, x)$ & $O(1)$ & $O(\log x)$ \\
+\hline
+\end{tabular}
+\bigskip
+
+where we assumed that $L = v_0,(\ldots,(v_{n-1},())$.
+
+Derived operations:
+
+\indent\begin{tabular}{|l|l|c|}
+\hline
+Operation & Uniform cost& Logarithmic cost\\
+\hline
+\hline
+\tt lookup$(L,i)$ & $O(i)$ & ? \\
+\hline
+\tt insert$(L, i, x)$ & $O(i)$ & ? \\
+\hline
+\tt update$(L, i, x)$ & $O(i)$ & ? \\
+\hline
+\tt topBack($L$) & $O(\texttt{size}(L))$ & ? \\
+\hline
+\tt popBack($L$) & $O(\texttt{size}(L))$ & ? \\
+\hline
+\tt pushBack($L$) & $O(\texttt{size}(L))$& ? \\
+\hline
 \end{tabular}
 
-\noindent
-where $L$ is the list which the operation is executed over. 
 
 \subsubsection{Arrays}
 An array is represented as a finite set of maps from indexes to values.
@@ -178,6 +201,11 @@ $\{\texttt{n}\mapsto 3~ \texttt{a}\mapsto \{0\mapsto [1,2,\texttt{.Vals}]~
 
   syntax Vals ::= List{Val,","}
 */
+
+  syntax Val ::= "noVal" 
+               | "lambda" "(" Ids "@" Stmts ")" 
+                 [latex(\lambda\,{#1}\mathrel{\bullet}{#2})]
+
   syntax KResult ::= Val
 
 /*
@@ -204,6 +232,10 @@ EXamples: a map $\texttt{x}\mapsto 5$ represents a memory cell storing $5$ and r
 
   rule <k> .K </k>
        (<gstate> _:Map </gstate> => .)
+
+
+  rule <k> .K </k>
+       <state>... F |-> lambda(_ @ _) => . ...</state>
 
   rule <k>  '_`(_`)`{_`}(F:Name,, Xl:Ids,, Sts:Stmts)  => .  ...</k> 
        <state>... . => (F |-> lambda(Xl @ Sts)) ...</state>
@@ -290,6 +322,9 @@ EXamples: a map $\texttt{x}\mapsto 5$ represents a memory cell storing $5$ and r
   rule (Sts:Stmts Sts':Stmts) => (Sts ~> Sts')
        [seq-comp, structural] 
 
+  rule for ( St1:Stmt E2:Exp; St2:Stmt) St3:Stmt 
+       =>
+       { St1 while (E2) { St3 St2 } } 
 
   //@ Arrays
 
@@ -303,7 +338,7 @@ EXamples: a map $\texttt{x}\mapsto 5$ represents a memory cell storing $5$ and r
 
 
   // lookup
-  rule '_`[_`]({_ I |-> V:Val _},, I:Int) => V
+  rule ({_ I |-> V:Val _}[I:Int])::Exp => V
 
   // update
   rule <k> X:Name[I:Int] = V:Val ; => . ...</k>
@@ -436,7 +471,7 @@ This is the first example of abstract data type implemented in our language (com
 The objects are sequences of values: $[v_0,\ldots,v_{n-1}]$. The oprations are the usual ones: 
 \texttt{empty()}, \texttt{topFront()}, \texttt{topBack()}, \texttt{select(i)}, \texttt{insert(i,x)},
  \texttt{size()}, \texttt{popFront()}, \texttt{popBack()}, \texttt{pushFront(x)}, 
-\texttt{pushBack(x)}, \texttt{update(i,x)}. 
+\texttt{pushBack(x)}, \texttt{update(i,x)}, , \texttt{delete(i)}. 
 
 In the representation of the algorithms in our language only scalars, lists, arrays, and structures 
 are used.  The cons lists have no representation at the high level.

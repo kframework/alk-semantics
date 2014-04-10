@@ -78,5 +78,21 @@
       <krun-option name="-cST" value="random_seed |-> 1212" />
     </program> 
 
+    <program name="bubblesort.alk"> 
+      <krun-option name="-cST"
+                   value="x |-> { 0 |-> 7 1 |-> 9 2 |-> 8 3 |-> 0 4 |-> 5 } m |-> 5"
+      />
+    </program> 
+
+    <program name="comp-geom/test1.alk">
+      <krun-option name="-cST" 
+                   value="L|-> {.Map}"
+      />
+      <krun-option name="--parser"
+                   value="kast --parser ground"
+      />
+    </program> 
+
   </test> 
+
 </tests>

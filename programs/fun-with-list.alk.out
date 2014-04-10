@@ -2,8 +2,5 @@
     .K
 </k>
 <state>
-    duplicate |-> lambda ( L @ i = 0 ; while ( (i < (L . (size (  )))) ) { (L 
-      . (update ( i, (2 * (L . (select ( i )))) ))) ; i = (i + 1) ; } return L
-       ; )
     l |-> [ 2, 4, 6 ]
 </state>

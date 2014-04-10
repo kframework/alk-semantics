@@ -2,8 +2,6 @@
     .K
 </k>
 <state>
-    rand |-> lambda (  @ random_seed = ((random_seed * 1103515245) + 12345) ; 
-      return ((random_seed / 65536) % 32768) ; )
     random_seed |-> 1475908039511156662170
     x |-> 26331
     y |-> 19887
